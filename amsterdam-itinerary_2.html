@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutch Mijos' Amsterdam Guide | March 2-8, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d4a574;
+            --text-color: #333;
+            --light-bg: #f8f6f3;
+            --white: #ffffff;
+            --divider: #d4a574;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .intro {
+            padding: 5rem 0;
+            text-align: center;
+            background: var(--light-bg);
+        }
+
+        .intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: var(--divider);
+            margin: 3rem auto;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .day-card {
+            background: white;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .day-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .day-date {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .day-content {
+            padding: 2.5rem;
+        }
+
+        .time-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        .place-item {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .place-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-color);
+        }
+
+        .place-name a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .place-name a:hover {
+            color: var(--accent-color);
+        }
+
+        .place-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .category-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .tips-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .tip-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .coffee-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #3e5266 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .coffee-section .section-title {
+            color: white;
+        }
+
+        .coffee-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .coffeeshop-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .coffeeshop-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(5px);
+        }
+
+        .coffeeshop-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .coffeeshop-name a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .coffeeshop-details {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.8rem;
+        }
+
+        .coffeeshop-known {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .warning-box {
+            background: #2c3e50;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .warning-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer p {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .day-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .hero {
+                height: 40vh;
+                page-break-after: avoid;
+            }
+
+            .day-card {
+                page-break-inside: avoid;
+            }
+
+            button {
+                display: none;
+            }
+
+            a {
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+
+            .coffeeshop-card, .tip-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Dutch Mijos' Amsterdam Guide</h1>
+            <p>MARCH 2-8, 2026</p>
+            <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.9;"><a href="https://www.google.com/maps/search/?api=1&query=Max+Brown+Hotel+Museum+Square+Amsterdam" target="_blank" style="color: white; text-decoration: underline;">Max Brown Museum Square Hotel</a></p>
+        </div>
+    </div>
+
+    <div class="intro">
+        <div class="container">
+            <h2>Discover the Local Hide-Outs</h2>
+            <div class="divider"></div>
+            <p>A relaxed, laidback week exploring Amsterdam's most authentic neighborhoods. Built for walking and metro, with minimal tourist traps and maximum local flavor. From De Pijp's vibrant markets to Jordaan's hidden courtyards, from Noord's industrial creativity to Oud-Zuid's refined elegance.</p>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--primary-color);">Your Hotel</h3>
+                <p style="font-size: 1rem; margin-bottom: 0.5rem;"><strong>Max Brown Museum Square</strong></p>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem;">Jan Luijkenstraat 44, Amsterdam</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Max+Brown+Hotel+Museum+Square+Amsterdam" target="_blank" style="display: inline-block; padding: 0.8rem 1.5rem; background: var(--accent-color); color: white; text-decoration: none; border-radius: 4px; font-weight: 500; transition: background 0.3s ease;">View on Google Maps</a>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <button onclick="window.print()" style="padding: 1rem 2rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; font-weight: 500; transition: background 0.3s ease;" onmouseover="this.style.background='#1a252f'" onmouseout="this.style.background='#2c3e50'">Download as PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Day by Day</h2>
+            <p class="section-subtitle">Your Week in Amsterdam</p>
+
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 1 — Arrival & Settling In</h3>
+                    <p class="day-date">Sunday, March 2</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <p class="time-label">Afternoon</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Vondelpark+Amsterdam" target="_blank">Vondelpark</a></p>
+                            <p class="place-description">Amsterdam's largest park, perfect for an easy orientation walk. 3 minutes from your hotel.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Lunch</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Vertigo+Vondelpark+3+Amsterdam" target="_blank">Café Vertigo</a></p>
+                            <p class="place-description">Parkside grand café with French brasserie vibes. Try the eggs royale or steak frites.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Dinner</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=NENI+Restaurant+Amsterdam" target="_blank">NENI</a></p>
+                            <p class="place-description">Eastern Mediterranean mezze in a converted garage. Famous for popcorn falafel.</p>
+                        </div>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Zuid+Koninginneweg+Amsterdam" target="_blank">Café Zuid</a></p>
+                            <p class="place-description">French bistro with shared plates and seasonal menu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 2 — De Pijp Day</h3>
+                    <p class="day-date">Monday, March 3</p>
+                </div>
+                <div class="day-content">
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=500" alt="Albert Cuyp Market">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500" alt="Amsterdam street food">
+                        <img src="https://images.unsplash.com/photo-1504826260979-242151ee45b7?w=500" alt="Sarphatipark">
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Morning</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Albert+Cuyp+Market+Amsterdam" target="_blank">Albert Cuyp Market</a></p>
+                            <p class="place-description">Amsterdam's largest street market with 260+ stalls. Street food heaven — grilled cheese, Asian buns, fresh stroopwafels.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Brunch</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Sir+Hummus+Amsterdam" target="_blank">Sir Hummus</a></p>
+                            <p class="place-description">Best hummus in Amsterdam. Crispy aubergines, smokey egg, perfect for vegetarians.</p>
+                        </div>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Harmani+Frans+Halsstraat+89+Amsterdam" target="_blank">Harmani</a></p>
+                            <p class="place-description">Micro-roastery with Greek peirnili's, sourdough vibes, and excellent coffee. Sweet croissants and brunch classics.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Afternoon</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Sarphatipark+Amsterdam" target="_blank">Sarphatipark</a></p>
+                            <p class="place-description">Small local park, perfect for people-watching.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Evening</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Brouwerij+Troost+De+Pijp+Amsterdam" target="_blank">Brouwerij Troost</a></p>
+                            <p class="place-description">Local brewery with vegetarian pub food and weekly pub quiz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 3 — Jordaan & Nine Streets</h3>
+                    <p class="day-date">Tuesday, March 4</p>
+                </div>
+                <div class="day-content">
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=500" alt="Jordaan canals">
+                        <img src="https://images.unsplash.com/photo-1459679749680-18eb1eb37418?w=500" alt="Amsterdam canal houses">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500" alt="Cafe culture">
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Morning</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Egelantiersgracht+Amsterdam" target="_blank">Egelantiersgracht</a> & <a href="https://www.google.com/maps/search/?api=1&query=Bloemgracht+Amsterdam" target="_blank">Bloemgracht</a></p>
+                            <p class="place-description">Prettiest canals in Amsterdam. Houseboats, swans, and postcard-perfect views.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Brunch</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Winkel+43+Noordermarkt+Amsterdam" target="_blank">Winkel 43</a></p>
+                            <p class="place-description">Famous homemade apple pie with fresh whipped cream. Worth the queue.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Afternoon</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=De+Negen+Straatjes+Amsterdam" target="_blank">The Nine Streets</a></p>
+                            <p class="place-description">Quirky boutiques, vintage shops, specialty stores between Prinsengracht and Singelgracht.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Evening</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Cafe+t+Papeneiland+Prinsengracht+2+Amsterdam" target="_blank">Café 't Papeneiland</a></p>
+                            <p class="place-description">Historic brown café from 1642. Allegedly has a secret priest tunnel in the basement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 4 — Museums & Oud-Zuid</h3>
+                    <p class="day-date">Wednesday, March 5</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <p class="time-label">Morning</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Rijksmuseum+Amsterdam" target="_blank">Rijksmuseum</a></p>
+                            <p class="place-description">Dutch masters, Vermeer, Rembrandt. Book tickets in advance. 2-3 hours recommended.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Afternoon</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=t+Blauwe+Theehuis+Vondelpark+Amsterdam" target="_blank">'t Blauwe Theehuis</a></p>
+                            <p class="place-description">UFO-shaped café in Vondelpark. Iconic modernist pavilion.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Dinner</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Bolenius+Restaurant+Amsterdam" target="_blank">Bolenius</a></p>
+                            <p class="place-description">Modern Dutch cuisine with hyperlocal ingredients and wood-oven cooking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 5 — Amsterdam Oost</h3>
+                    <p class="day-date">Thursday, March 6</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <p class="time-label">Morning</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Oosterpark+Amsterdam" target="_blank">Oosterpark</a></p>
+                            <p class="place-description">First public park in Amsterdam with sculptures by Surinamese artists.</p>
+                        </div>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Dappermarkt+Amsterdam" target="_blank">Dappermarkt</a></p>
+                            <p class="place-description">Local street market, multicultural, less touristy than Albert Cuyp.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Afternoon</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Tropenmuseum+Linnaeusstraat+2+Amsterdam" target="_blank">Tropenmuseum</a></p>
+                            <p class="place-description">World cultures and colonial history museum. Fascinating and thought-provoking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 6 — Amsterdam Noord</h3>
+                    <p class="day-date">Friday, March 7</p>
+                </div>
+                <div class="day-content">
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=500" alt="NDSM Wharf">
+                        <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?w=500" alt="Street art">
+                        <img src="https://images.unsplash.com/photo-1511376868136-742c0de8c9a8?w=500" alt="Ferry Amsterdam">
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Morning</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Amsterdam+Centraal+Station+Ferry+Terminal" target="_blank">Free Ferry to Noord</a></p>
+                            <p class="place-description">15-minute ferry ride from Centraal Station. Runs every 10-15 minutes.</p>
+                        </div>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=NDSM+Wharf+Amsterdam" target="_blank">NDSM Wharf</a></p>
+                            <p class="place-description">Former shipyard turned creative hub. Street art, warehouses, breweries. Totally different vibe from canal-house Amsterdam.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Lunch</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Pllek+NDSM+Amsterdam" target="_blank">Pllek</a></p>
+                            <p class="place-description">Shipping container restaurant with beach vibes and local beers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">Day 7 — Flex Day</h3>
+                    <p class="day-date">Saturday, March 8</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <p class="time-label">Morning</p>
+                        <div class="place-item">
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Noordermarkt+Amsterdam" target="_blank">Noordermarkt</a></p>
+                            <p class="place-description">Saturday organic market, second-hand clothes, vintage treasures. Best day to visit.</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <p class="time-label">Day</p>
+                        <div class="place-item">
+                            <p class="place-description">Catch anything you missed or revisit favorite spots. Final shopping at Albert Cuyp Market, Nine Streets, or P.C. Hooftstraat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section tips-section">
+        <div class="container">
+            <h2 class="section-title">Essential Spots</h2>
+            <div class="divider"></div>
+
+            <div class="grid">
+                <div class="category-card">
+                    <h3 class="category-title">Coffee Shops</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">(Actual Coffee)</p>
+                    <ul class="category-list">
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafecito+Amsterdam" target="_blank">Cafecito</a> — Oud-Zuid</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=LOT61+Amsterdam" target="_blank">LOT61</a> — Oud-Zuid</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Harmani+Frans+Halsstraat+89+Amsterdam" target="_blank">Harmani</a> — De Pijp</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Coffee+Bru+Amsterdam" target="_blank">Coffee Bru</a> — Oost</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3 class="category-title">Brown Cafés</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">(Traditional Pubs)</p>
+                    <ul class="category-list">
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+t+Smalle+Egelantiersgracht+12+Amsterdam" target="_blank">Café 't Smalle</a> — Jordaan</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+t+Papeneiland+Prinsengracht+2+Amsterdam" target="_blank">Café 't Papeneiland</a> — Jordaan</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+de+Prins+Prinsengracht+124+Amsterdam" target="_blank">Café de Prins</a> — Jordaan</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3 class="category-title">Parks</h3>
+                    <ul class="category-list">
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Vondelpark+Amsterdam" target="_blank">Vondelpark</a> — Your backyard</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Sarphatipark+Amsterdam" target="_blank">Sarphatipark</a> — De Pijp</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Oosterpark+Amsterdam" target="_blank">Oosterpark</a> — Oost</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3 class="category-title">Markets</h3>
+                    <ul class="category-list">
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Albert+Cuyp+Market+Amsterdam" target="_blank">Albert Cuyp Market</a> — Mon-Sat</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Noordermarkt+Amsterdam" target="_blank">Noordermarkt</a> — Saturday organic</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Dappermarkt+Amsterdam" target="_blank">Dappermarkt</a> — Daily</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <h3 class="category-title" style="text-align: center; margin-bottom: 2rem;">Pro Tips</h3>
+                
+                <div class="tip-card">
+                    <h4 class="tip-title">Walking vs. Metro</h4>
+                    <p>Oud-Zuid to De Pijp: 20 min walk or 5 min metro M52<br>
+                    Oud-Zuid to Jordaan: 25 min walk or 15 min tram<br>
+                    Oud-Zuid to Centrum: 20 min walk or 10 min metro</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4 class="tip-title">Weather</h4>
+                    <p>March in Amsterdam: 5-10°C, rain likely. Bring waterproof jacket, comfortable walking shoes. Layers are key.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4 class="tip-title">Biking</h4>
+                    <p>Amsterdam is THE bike city, but watch for tram tracks and aggressive cyclists. Bike lanes are serious business — don't block them. Rent bikes if comfortable, but walking/metro is totally fine.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4 class="tip-title">Avoid Tourist Traps</h4>
+                    <p>Skip big chain restaurants on Leidseplein and Rembrandtplein. Don't eat near Damrak/Dam Square (overpriced, low quality). Albert Cuyp Market is touristy but still worth it for street food.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="coffee-section">
+        <div class="container">
+            <h2 class="section-title">Cannabis Coffeeshops</h2>
+            <p class="section-subtitle">Well-Reviewed & Nearby</p>
+
+            <div class="warning-box">
+                <p class="warning-title">Important Notes</p>
+                <p>• Must be 18+ with valid ID<br>
+                • Max 5 grams per person for personal use<br>
+                • €100 fine for smoking in public areas (Dam Square, Red Light District, Nieuwmarkt)<br>
+                • Smoking permitted inside licensed coffeeshops only<br>
+                • No alcohol sold in coffeeshops</p>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">Near Your Hotel (Oud-Zuid)</h3>
+
+            <div class="coffeeshop-card">
+                <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Best+Friends+Coffeeshop+Amstelveenseweg+61+Amsterdam" target="_blank">Best Friends Coffeeshop Oud-Zuid</a></h4>
+                <p class="coffeeshop-details">Amstelveenseweg 61II (10 min walk from hotel)</p>
+                <p class="coffeeshop-known"><strong>Known for:</strong> Beginner-friendly, knowledgeable budtenders, quality edibles, space cakes. Great for first-timers with patient explanations.</p>
+            </div>
+
+            <div class="coffeeshop-card">
+                <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Coffeeshop+DNA+Amsterdam+Zuid" target="_blank">Coffeeshop DNA</a></h4>
+                <p class="coffeeshop-details">South Amsterdam (near Oud-Zuid)</p>
+                <p class="coffeeshop-known"><strong>Known for:</strong> Amsterdam Genetics strains, exclusive cultivars, premium quality. Affiliated with Amsterdam Genetics seed bank.</p>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">De Pijp Area</h3>
+
+            <div class="coffeeshop-card">
+                <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Coffeeshop+Yo+Yo+Amsterdam+De+Pijp" target="_blank">Yo-Yo</a></h4>
+                <p class="coffeeshop-details">2e Jan van der Heijdenstraat 79</p>
+                <p class="coffeeshop-known"><strong>Known for:</strong> Boho-chic, living room atmosphere, spacious smoking lounge, sun-soaked terrace. Attracts locals and tourists.</p>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">Centrum (City Center)</h3>
+
+            <div class="coffeeshop-card">
+                <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Grey+Area+Coffeeshop+Oude+Leliestraat+2+Amsterdam" target="_blank">Grey Area</a></h4>
+                <p class="coffeeshop-details">Oude Leliestraat 2</p>
+                <p class="coffeeshop-known"><strong>Known for:</strong> Award-winning strains, legendary status, founded by two Americans. Visited by Willie Nelson & Snoop Dogg. Small, intimate, extensive selection.</p>
+            </div>
+
+            <div class="coffeeshop-card">
+                <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=420+Cafe+Damrak+Amsterdam" target="_blank">420 Cafe</a></h4>
+                <p class="coffeeshop-details">Oudebrugsteeg 27 (near Dam Square)</p>
+                <p class="coffeeshop-known"><strong>Known for:</strong> Excellent space cakes (lemon & chocolate), friendly staff, Bob Marley vibes, wooden decor, chill music.</p>
+            </div>
+
+            <div class="coffeeshop-card">
+                <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Abraxas+Coffeeshop+Amsterdam" target="_blank">Abraxas</a></h4>
+                <p class="coffeeshop-details">Jonge Roelensteeg 12 (tiny alley near Dam Square)</p>
+                <p class="coffeeshop-known"><strong>Known for:</strong> Perfect for newbies, friendly advice, extensive menu. Classic strains: Amnesia Haze, Orange Bud. Cozy two-floor layout.</p>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">Tips for Coffeeshop Visits</h3>
+
+            <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px;">
+            <div class="tip-card" style="background: rgba(255,255,255,0.95); color: var(--text-color);">
+                <h4 class="tip-title">For First-Timers</h4>
+                <p>Start with <strong>Best Friends</strong> (any location) — most beginner-friendly. Ask staff for recommendations based on desired effects (relaxing vs. energizing). Edibles are more potent than smoking — follow dosage instructions carefully. Effects from edibles take 30-90 minutes to kick in, don't eat more while waiting.</p>
+            </div>
+
+            <div class="tip-card" style="background: rgba(255,255,255,0.95); color: var(--text-color);">
+                <h4 class="tip-title">General Advice</h4>
+                <p>Space cakes taste "off" but not terrible — distinctive cannabis flavor. Don't mix with heavy alcohol consumption. Bring valid ID. Most coffeeshops close 10pm-1am. Pre-rolls available if you don't want to roll your own. Staff (budtenders) are experts — don't hesitate to ask questions.</p>
+            </div>
+
+            <div class="tip-card" style="background: rgba(255,255,255,0.95); color: var(--text-color);">
+                <h4 class="tip-title">What to Avoid</h4>
+                <p>Never buy cannabis on the street. Don't smoke in public areas (parks, Dam Square, Red Light District). Skip the extremely touristy spots on Damrak if you want better prices/atmosphere.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">Enjoy Your Stay in Amsterdam</p>
+            <p>March in Amsterdam is moody, green, and beautifully quiet compared to summer. You're in for a great week.</p>
+        </div>
+    </div>
+</body>
+</html>
