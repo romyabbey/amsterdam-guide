@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dutch Mijos' Amsterdam Guide | March 2-8, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <meta property="og:title" content="Dutch Mijos' Amsterdam Guide" />
+    <meta property="og:description" content="A curated 7-day guide to Amsterdam - Neighborhoods, Dining, and Local Experiences." />
+    <meta property="og:type" content="website" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -13,37 +21,85 @@
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #d4a574;
-            --text-color: #333;
-            --light-bg: #f8f6f3;
+            --primary: #1a1a1a;
+            --secondary: #666;
+            --accent: #c9a66b;
+            --light: #f8f7f5;
             --white: #ffffff;
-            --divider: #d4a574;
+            --border: #e5e5e5;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             line-height: 1.7;
-            color: var(--text-color);
+            color: var(--primary);
             background: var(--white);
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            letter-spacing: 0.5px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
 
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .download-btn-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn-header:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
         .hero {
             height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/347101ce-27c2-4673-9167-6ad94d142023/Amsterdam_May+04%2C+2018_1638.jpg') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
-            position: relative;
+            margin-top: 70px;
         }
 
         .hero-content {
@@ -52,17 +108,16 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 300;
+            font-size: 4.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            letter-spacing: 2px;
-            white-space: nowrap;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 1px;
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.95;
         }
 
         .container {
@@ -71,121 +126,108 @@
             padding: 0 2rem;
         }
 
+        /* INTRO */
         .intro {
             padding: 5rem 0;
+            background: var(--light);
             text-align: center;
-            background: var(--light-bg);
         }
 
         .intro h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-color);
+            color: var(--primary);
         }
 
-        .intro p {
+        .intro-text {
             font-size: 1.1rem;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto 3rem;
             line-height: 1.8;
+            color: var(--secondary);
         }
 
-        .divider {
-            width: 80px;
-            height: 2px;
-            background: var(--divider);
-            margin: 3rem auto;
+        .hotel-info {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
         }
 
+        .hotel-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hotel-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hotel-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* SECTION */
         .section {
-            padding: 4rem 0;
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
         .section-title {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .section-subtitle {
-            text-align: center;
             font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            letter-spacing: 1px;
+            color: var(--secondary);
         }
 
+        /* DAY CARDS */
         .day-card {
-            background: white;
+            background: var(--white);
             margin-bottom: 3rem;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
         .day-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
         }
 
         .day-header {
-            background: var(--primary-color);
+            background: #3d4f5c;
             color: white;
             padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .day-title {
-            font-size: 1.8rem;
-            font-weight: 400;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
         .day-date {
             font-size: 1rem;
-            opacity: 0.9;
-            font-weight: 300;
+            opacity: 0.85;
+            font-weight: 400;
         }
 
         .day-content {
             padding: 2.5rem;
-        }
-
-        .day-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            padding: 0 2.5rem 2.5rem;
-            background: #f8f8f8;
-        }
-
-        .day-image-wrapper {
-            position: relative;
-        }
-
-        .day-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-
-        .day-image:hover {
-            transform: scale(1.05);
-        }
-
-        .image-caption {
-            font-size: 0.85rem;
-            color: #666;
-            text-align: center;
-            margin-top: 0.5rem;
-            font-style: italic;
         }
 
         .time-block {
@@ -193,41 +235,78 @@
         }
 
         .time-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            color: var(--accent-color);
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 0.8rem;
+            color: #d4956a;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
         }
 
         .place-item {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             padding-left: 1.5rem;
-            border-left: 2px solid var(--accent-color);
+            border-left: 3px solid #d4956a;
         }
 
         .place-name {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.3rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
         .place-name a {
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
         .place-name a:hover {
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
         .place-description {
-            color: #555;
-            line-height: 1.6;
+            color: var(--secondary);
+            line-height: 1.7;
         }
 
+        /* IMAGES */
+        .day-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding: 0 2.5rem 2.5rem;
+            background: var(--light);
+        }
+
+        .day-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .day-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .day-image-wrapper:hover .day-image {
+            transform: scale(1.08);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* GRID SECTIONS */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -236,22 +315,22 @@
         }
 
         .category-card {
-            background: white;
+            background: var(--white);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
         .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
         }
 
         .category-title {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
         }
 
         .category-list {
@@ -259,9 +338,9 @@
         }
 
         .category-list li {
-            padding: 0.6rem 0;
-            border-bottom: 1px solid #eee;
-            color: #555;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--secondary);
         }
 
         .category-list li:last-child {
@@ -269,37 +348,41 @@
         }
 
         .category-list a {
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
             transition: color 0.2s ease;
+            font-weight: 500;
         }
 
         .category-list a:hover {
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
+        /* TIPS SECTION */
         .tips-section {
-            background: var(--light-bg);
+            background: var(--light);
         }
 
         .tip-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
 
         .tip-title {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
+        /* COFFEE SECTION */
         .coffee-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: var(--primary);
             color: white;
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
         .coffee-section .section-title,
@@ -308,21 +391,21 @@
         }
 
         .coffeeshop-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             padding: 2rem;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .coffeeshop-name {
-            font-size: 1.4rem;
-            color: var(--accent-color);
+            font-size: 1.5rem;
+            color: var(--accent);
             margin-bottom: 0.5rem;
         }
 
         .coffeeshop-name a {
-            color: var(--accent-color);
+            color: var(--accent);
             text-decoration: none;
         }
 
@@ -332,83 +415,71 @@
 
         .coffeeshop-details {
             font-size: 0.95rem;
-            opacity: 0.9;
+            opacity: 0.85;
             margin-bottom: 1rem;
         }
 
         .coffeeshop-known {
             line-height: 1.7;
+            opacity: 0.9;
         }
 
         .warning-box {
-            background: var(--primary-color);
-            color: white;
+            background: rgba(201, 166, 107, 0.15);
             padding: 2rem;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 3rem;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid var(--accent);
         }
 
         .warning-title {
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
+        /* FOOTER */
         .footer {
-            background: var(--primary-color);
+            background: var(--primary);
             color: white;
             text-align: center;
             padding: 3rem 0;
         }
 
-        .hotel-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            margin: 2rem 0;
-            border-left: 4px solid var(--accent-color);
+        .footer p {
+            opacity: 0.85;
         }
 
-        .hotel-info h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+        .footer a {
+            color: var(--accent);
             text-decoration: none;
-            font-weight: 500;
-            margin: 2rem 0;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
         }
 
-        .download-btn:hover {
-            background: #c4956a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        .footer a:hover {
+            text-decoration: underline;
         }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
-                white-space: normal;
+            }
+
+            .hero {
+                height: 60vh;
             }
 
             .day-header {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .intro h2 {
+                font-size: 2.2rem;
             }
 
             .grid {
@@ -417,29 +488,39 @@
 
             .day-images {
                 grid-template-columns: 1fr;
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .download-btn-header {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
             }
         }
 
         @media print {
+            .header {
+                position: static;
+            }
+
             .hero {
                 height: 40vh;
+                margin-top: 0;
             }
 
             .day-card {
                 page-break-inside: avoid;
             }
 
-            button {
+            .download-btn-header {
                 display: none;
-            }
-
-            a {
-                color: var(--primary-color);
-                text-decoration: none;
-            }
-
-            .coffeeshop-card, .tip-card {
-                page-break-inside: avoid;
             }
 
             .day-images {
@@ -449,6 +530,15 @@
     </style>
 </head>
 <body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Amsterdam.</a>
+            <button onclick="window.print()" class="download-btn-header">Download PDF</button>
+        </div>
+    </div>
+
+    <!-- HERO -->
     <div class="hero">
         <div class="hero-content">
             <h1>Dutch Mijos' Amsterdam Guide</h1>
@@ -456,32 +546,34 @@
         </div>
     </div>
 
+    <!-- INTRO -->
     <div class="intro">
         <div class="container">
             <h2>Welcome to Amsterdam</h2>
-            <p>This guide covers your week in Amsterdam's best local neighborhoods. Skip the tourist traps—you'll be exploring like a resident.</p>
+            <p class="intro-text">This guide covers your week in Amsterdam's best local neighborhoods. Skip the tourist traps—you'll be exploring like a resident.</p>
             
             <div class="hotel-info">
                 <h3>🏨 Your Home Base</h3>
-                <p><strong><a href="https://www.google.com/maps/search/?api=1&query=Max+Brown+Museum+Square+Hotel+Amsterdam" target="_blank" style="color: var(--accent-color);">Max Brown Museum Square Hotel</a></strong><br>
+                <p><strong><a href="https://www.google.com/maps/search/?api=1&query=Max+Brown+Museum+Square+Hotel+Amsterdam" target="_blank">Max Brown Museum Square Hotel</a></strong><br>
                 Jan Luijkenstraat 13-15, 1071 CJ Amsterdam<br>
                 Perfect location in Oud-Zuid – walking distance to everything below</p>
             </div>
-
-            <button onclick="window.print()" class="download-btn">📄 Download as PDF</button>
         </div>
     </div>
 
+    <!-- ITINERARY -->
     <div class="section">
         <div class="container">
-            <h2 class="section-title">Your Itinerary</h2>
-            <div class="divider"></div>
+            <div class="section-header">
+                <h2 class="section-title">Your Itinerary</h2>
+                <p class="section-subtitle">7 days exploring Amsterdam's best neighborhoods</p>
+            </div>
 
             <!-- DAY 1 -->
             <div class="day-card">
                 <div class="day-header">
                     <h3 class="day-title">Day 1: Early Arrival & Vondelpark</h3>
-                    <span class="day-date">Monday, March 2</span>
+                    <p class="day-date">Monday, March 2</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -520,7 +612,6 @@
                     </div>
                 </div>
 
-                <!-- DAY 1 PHOTOS - VONDELPARK -->
                 <div class="day-images">
                     <div class="day-image-wrapper">
                         <img src="https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/b72597cb-74d0-405b-8d97-94bedf8e7b6c/cbdc6e74-971d-4829-864e-746e3ebb7088.jpg" alt="Vondelpark green space" class="day-image">
@@ -541,7 +632,7 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3 class="day-title">Day 2: De Pijp & Markets</h3>
-                    <span class="day-date">Tuesday, March 3</span>
+                    <p class="day-date">Tuesday, March 3</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -551,8 +642,8 @@
                             <p class="place-description">Largest street market in Amsterdam (Mon-Sat 9am-5pm). Try stroopwafels, fresh herring, local cheese. Browse 300+ stalls.</p>
                         </div>
                         <div class="place-item">
-                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Sir+Hummus+Amsterdam" target="_blank">Sir Hummus</a></p>
-                            <p class="place-description">Israeli street food near the market. Sabich, falafel wraps. Popular with locals.</p>
+                            <p class="place-name"><a href="https://www.google.com/maps/search/?api=1&query=Vlaamsch+Broodhuys+Amsterdam" target="_blank">Vlaamsch Broodhuys</a></p>
+                            <p class="place-description">Artisan bakery near the market. Fresh sandwiches, pastries, and coffee. Perfect for a quick bite while exploring.</p>
                         </div>
                     </div>
 
@@ -577,7 +668,6 @@
                     </div>
                 </div>
 
-                <!-- DAY 2 PHOTOS - FLOWER MARKET -->
                 <div class="day-images">
                     <div class="day-image-wrapper">
                         <img src="https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/42b7cd83-bc4f-47f9-8c7c-2b9714ebf09f/1299d70a-106d-4fee-9fd6-b5cf9e866be0.jpg" alt="Flower market Amsterdam" class="day-image">
@@ -598,7 +688,7 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3 class="day-title">Day 3: Jordaan</h3>
-                    <span class="day-date">Wednesday, March 4</span>
+                    <p class="day-date">Wednesday, March 4</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -634,7 +724,6 @@
                     </div>
                 </div>
 
-                <!-- DAY 3 PHOTOS - JORDAAN NEIGHBORHOOD -->
                 <div class="day-images">
                     <div class="day-image-wrapper">
                         <img src="https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/893b1789-e2aa-46f5-9907-ba93a04b3257/Amsterdam_April+20%2C+2022_2071.jpg" alt="Jordaan street scene" class="day-image">
@@ -655,7 +744,7 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3 class="day-title">Day 4: Museum Day</h3>
-                    <span class="day-date">Thursday, March 5</span>
+                    <p class="day-date">Thursday, March 5</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -683,7 +772,6 @@
                     </div>
                 </div>
 
-                <!-- DAY 4 PHOTOS - RIJKSMUSEUM -->
                 <div class="day-images">
                     <div class="day-image-wrapper">
                         <img src="https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/419b8f3c-77e7-4e41-a28d-6fe4b5d2868f/9a59b927-8e10-4652-ad04-1eff6fd71666.jpg" alt="Rijksmuseum exterior" class="day-image">
@@ -704,7 +792,7 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3 class="day-title">Day 5: Canals & Architecture</h3>
-                    <span class="day-date">Friday, March 6</span>
+                    <p class="day-date">Friday, March 6</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -735,7 +823,6 @@
                     </div>
                 </div>
 
-                <!-- DAY 5 PHOTOS - CANALS & BRIDGES -->
                 <div class="day-images">
                     <div class="day-image-wrapper">
                         <img src="https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/925cb9d5-f2de-41dd-b66e-721c91d37ff4/076be46e-a661-458b-b94d-7fccb9b17a07.jpg" alt="Seven bridges Amsterdam" class="day-image">
@@ -756,7 +843,7 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3 class="day-title">Day 6: Central Station & Iconic Views</h3>
-                    <span class="day-date">Saturday, March 7</span>
+                    <p class="day-date">Saturday, March 7</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -795,7 +882,6 @@
                     </div>
                 </div>
 
-                <!-- DAY 6 PHOTOS - CENTRAL STATION & ICONIC SPOTS -->
                 <div class="day-images">
                     <div class="day-image-wrapper">
                         <img src="https://images.squarespace-cdn.com/content/v1/5c7976ec11f78465c3ab8a2d/dd29364c-6e8b-405d-9e0c-df0cf483e308/9e44cf46-fc38-49a6-a501-61afbff9d4a6.jpg" alt="Central Station sunrise" class="day-image">
@@ -815,8 +901,8 @@
             <!-- DAY 7 -->
             <div class="day-card">
                 <div class="day-header">
-                    <h3 class="day-title">Day 7: Flex Day & Departure Prep</h3>
-                    <span class="day-date">Sunday, March 8</span>
+                    <h3 class="day-title">Day 7: Flex Day & Departure</h3>
+                    <p class="day-date">Sunday, March 8</p>
                 </div>
                 <div class="day-content">
                     <div class="time-block">
@@ -844,15 +930,18 @@
         </div>
     </div>
 
+    <!-- ESSENTIAL SPOTS -->
     <div class="section tips-section">
         <div class="container">
-            <h2 class="section-title">Essential Spots</h2>
-            <div class="divider"></div>
+            <div class="section-header">
+                <h2 class="section-title">Essential Spots</h2>
+                <p class="section-subtitle">Curated recommendations for your stay</p>
+            </div>
 
             <div class="grid">
                 <div class="category-card">
                     <h3 class="category-title">Coffee Shops</h3>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">(Actual Coffee)</p>
+                    <p style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 1rem;">(Actual Coffee)</p>
                     <ul class="category-list">
                         <li><a href="https://www.google.com/maps/search/?api=1&query=Cafecito+Amsterdam" target="_blank">Cafecito</a> — Oud-Zuid</li>
                         <li><a href="https://www.google.com/maps/search/?api=1&query=LOT61+Amsterdam" target="_blank">LOT61</a> — Oud-Zuid</li>
@@ -863,7 +952,7 @@
 
                 <div class="category-card">
                     <h3 class="category-title">Brown Cafés</h3>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">(Traditional Pubs)</p>
+                    <p style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 1rem;">(Traditional Pubs)</p>
                     <ul class="category-list">
                         <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+t+Smalle+Egelantiersgracht+12+Amsterdam" target="_blank">Café 't Smalle</a> — Jordaan</li>
                         <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+t+Papeneiland+Prinsengracht+2+Amsterdam" target="_blank">Café 't Papeneiland</a> — Jordaan</li>
@@ -890,8 +979,8 @@
                 </div>
             </div>
 
-            <div style="margin-top: 3rem;">
-                <h3 class="category-title" style="text-align: center; margin-bottom: 2rem;">Pro Tips</h3>
+            <div style="margin-top: 4rem;">
+                <h3 class="section-title" style="margin-bottom: 2rem;">Pro Tips</h3>
                 
                 <div class="tip-card">
                     <h4 class="tip-title">Walking vs. Metro</h4>
@@ -902,17 +991,12 @@
 
                 <div class="tip-card">
                     <h4 class="tip-title">Weather</h4>
-                    <p>March in Amsterdam: 5-10°C, rain likely. Bring waterproof jacket, comfortable walking shoes. Layers are key.</p>
+                    <p>March in Amsterdam: 41-50°F (5-10°C), rain likely. Bring waterproof jacket, comfortable walking shoes. Layers are key.</p>
                 </div>
 
                 <div class="tip-card">
                     <h4 class="tip-title">Biking</h4>
                     <p>Amsterdam is THE bike city, but watch for tram tracks and aggressive cyclists. Bike lanes are serious business — don't block them or walk in them. Seriously, they will run you over! Rent bikes if comfortable, but walking/metro is totally fine.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h4 class="tip-title">Photography Tips</h4>
-                    <p>Best times: Blue hour (sunrise/sunset) for canal shots. Bring a tripod for long exposures. Don't photograph in the Red Light District at night (illegal!). The city looks magical when lit up after dark.</p>
                 </div>
 
                 <div class="tip-card">
@@ -923,10 +1007,13 @@
         </div>
     </div>
 
+    <!-- CANNABIS COFFEESHOPS -->
     <div class="coffee-section">
         <div class="container">
-            <h2 class="section-title">Cannabis Coffeeshops</h2>
-            <p class="section-subtitle">Well-Reviewed & Nearby</p>
+            <div class="section-header">
+                <h2 class="section-title">Cannabis Coffeeshops</h2>
+                <p class="section-subtitle">Well-Reviewed & Nearby</p>
+            </div>
 
             <div class="warning-box">
                 <p class="warning-title">Important Notes</p>
@@ -937,7 +1024,7 @@
                 • No alcohol sold in coffeeshops</p>
             </div>
 
-            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">Near Your Hotel (Oud-Zuid)</h3>
+            <h3 style="font-size: 2rem; margin: 3rem 0 2rem; color: var(--accent); font-family: 'Playfair Display', serif;">Near Your Hotel (Oud-Zuid)</h3>
 
             <div class="coffeeshop-card">
                 <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Best+Friends+Coffeeshop+Amstelveenseweg+61+Amsterdam" target="_blank">Best Friends Coffeeshop Oud-Zuid</a></h4>
@@ -951,7 +1038,7 @@
                 <p class="coffeeshop-known"><strong>Known for:</strong> Amsterdam Genetics strains, exclusive cultivars, premium quality. Affiliated with Amsterdam Genetics seed bank.</p>
             </div>
 
-            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">De Pijp Area</h3>
+            <h3 style="font-size: 2rem; margin: 3rem 0 2rem; color: var(--accent); font-family: 'Playfair Display', serif;">De Pijp Area</h3>
 
             <div class="coffeeshop-card">
                 <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Coffeeshop+Yo+Yo+Amsterdam+De+Pijp" target="_blank">Yo-Yo</a></h4>
@@ -959,7 +1046,7 @@
                 <p class="coffeeshop-known"><strong>Known for:</strong> Boho-chic, living room atmosphere, spacious smoking lounge, sun-soaked terrace. Attracts locals and tourists.</p>
             </div>
 
-            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">Centrum (City Center)</h3>
+            <h3 style="font-size: 2rem; margin: 3rem 0 2rem; color: var(--accent); font-family: 'Playfair Display', serif;">Centrum (City Center)</h3>
 
             <div class="coffeeshop-card">
                 <h4 class="coffeeshop-name"><a href="https://www.google.com/maps/search/?api=1&query=Grey+Area+Coffeeshop+Oude+Leliestraat+2+Amsterdam" target="_blank">Grey Area</a></h4>
@@ -979,32 +1066,33 @@
                 <p class="coffeeshop-known"><strong>Known for:</strong> Perfect for newbies, friendly advice, extensive menu. Classic strains: Amnesia Haze, Orange Bud. Cozy two-floor layout.</p>
             </div>
 
-            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-color);">Tips for Coffeeshop Visits</h3>
+            <h3 style="font-size: 2rem; margin: 3rem 0 2rem; color: var(--accent); font-family: 'Playfair Display', serif;">Tips for Coffeeshop Visits</h3>
 
-            <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px;">
-            <div class="tip-card" style="background: rgba(255,255,255,0.95); color: var(--text-color);">
-                <h4 class="tip-title">For First-Timers</h4>
-                <p>Start with <strong>Best Friends</strong> (any location) — most beginner-friendly. Ask staff for recommendations based on desired effects (relaxing vs. energizing). Edibles are more potent than smoking — follow dosage instructions carefully. Effects from edibles take 30-90 minutes to kick in, don't eat more while waiting.</p>
-            </div>
+            <div style="display: grid; gap: 1.5rem;">
+                <div class="tip-card">
+                    <h4 class="tip-title">For First-Timers</h4>
+                    <p>Start with <strong>Best Friends</strong> (any location) — most beginner-friendly. Ask staff for recommendations based on desired effects (relaxing vs. energizing). Edibles are more potent than smoking — follow dosage instructions carefully. Effects from edibles take 30-90 minutes to kick in, don't eat more while waiting.</p>
+                </div>
 
-            <div class="tip-card" style="background: rgba(255,255,255,0.95); color: var(--text-color);">
-                <h4 class="tip-title">General Advice</h4>
-                <p>Space cakes taste "off" but not terrible — distinctive cannabis flavor. Don't mix with heavy alcohol consumption. Bring valid ID. Most coffeeshops close 10pm-1am. Pre-rolls available if you don't want to roll your own. Staff (budtenders) are experts — don't hesitate to ask questions.</p>
-            </div>
+                <div class="tip-card">
+                    <h4 class="tip-title">General Advice</h4>
+                    <p>Space cakes taste "off" but not terrible — distinctive cannabis flavor. Don't mix with heavy alcohol consumption. Bring valid ID. Most coffeeshops close 10pm-1am. Pre-rolls available if you don't want to roll your own. Staff (budtenders) are experts — don't hesitate to ask questions.</p>
+                </div>
 
-            <div class="tip-card" style="background: rgba(255,255,255,0.95); color: var(--text-color);">
-                <h4 class="tip-title">What to Avoid</h4>
-                <p>Never buy cannabis on the street. Don't smoke in public areas (parks, Dam Square, Red Light District). Skip the extremely touristy spots on Damrak if you want better prices/atmosphere.</p>
-            </div>
+                <div class="tip-card">
+                    <h4 class="tip-title">What to Avoid</h4>
+                    <p>Never buy cannabis on the street. Don't smoke in public areas (parks, Dam Square, Red Light District). Skip the extremely touristy spots on Damrak if you want better prices/atmosphere.</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER -->
     <div class="footer">
         <div class="container">
             <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">Enjoy Your Stay in Amsterdam</p>
             <p>March in Amsterdam is moody, green, and beautifully quiet compared to summer. You're in for a great week.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Photos courtesy of <a href="https://www.chasinghippoz.com" style="color: var(--accent-color);">Chasing Hippoz | Vito L Tanzi</a></p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">Photos courtesy of <a href="https://www.chasinghippoz.com">Chasing Hippoz | Vito L Tanzi</a></p>
         </div>
     </div>
 </body>
